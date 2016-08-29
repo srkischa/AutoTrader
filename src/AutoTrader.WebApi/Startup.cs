@@ -1,4 +1,5 @@
-﻿using Microsoft.Owin;
+﻿using AutoTrader.WebApi.Init;
+using Microsoft.Owin;
 using Microsoft.Owin.Cors;
 using Owin;
 using Swashbuckle.Application;
@@ -16,7 +17,7 @@ namespace AutoTrader.WebApi
             config.EnableSwagger(c => c.SingleApiVersion("v1", "API for Innsio CRM"))
            .EnableSwaggerUi();
 
-            //DependecyResolverInitializer.ResolveWebApiDependencies(this.GetType().Assembly, config, app);
+            DependencyResolverInitializer.ResolveWebApiDependencies(this.GetType().Assembly, config, app);
 
             //app.Use<InvalidAuthenticationMiddleware>();
 

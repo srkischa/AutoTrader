@@ -43,8 +43,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=4.1.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.1.0\lib\net45\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Integration.Owin, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Owin.4.0.0\lib\net45\Autofac.Integration.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="AutoMapper, Version=5.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.5.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -140,12 +156,16 @@
   <ItemGroup>
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Mapper\UserProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Provider\AutoTraderAuthorizationServerProvider.cs" />
+    <Compile Include="Request\UserRegistrationRequest.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -163,13 +183,29 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AutoTrader.Data.Migrations\AutoTrader.Data.Migrations.csproj">
+      <Project>{a0f0255e-3f43-414f-8c4d-c92a3e56ba50}</Project>
+      <Name>AutoTrader.Data.Migrations</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutoTrader.Data\AutoTrader.Data.csproj">
+      <Project>{855425a9-2db6-4277-9dae-31026a7f48db}</Project>
+      <Name>AutoTrader.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AutoTrader.DomainModel\AutoTrader.DomainModel.csproj">
       <Project>{30C77A0B-4E09-4342-9B13-C595E7E73AF1}</Project>
       <Name>AutoTrader.DomainModel</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AutoTrader.Service.Identity\AutoTrader.Service.Identity.csproj">
+      <Project>{6becc9e3-52e2-47df-915a-ccf2bca1b806}</Project>
+      <Name>AutoTrader.Service.Identity</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AutoTrader.Service\AutoTrader.Service.csproj">
       <Project>{8802A8D9-E293-41CC-8FFD-2410B68535D2}</Project>
       <Name>AutoTrader.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutoTrader.WebApi.Init\AutoTrader.WebApi.Init.csproj">
+      <Project>{61AE93F7-3E3D-4642-950A-3935885F940C}</Project>
+      <Name>AutoTrader.WebApi.Init</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -1,4 +1,5 @@
-﻿using Microsoft.Owin;
+﻿using AutoTrader.WebApi.Provider;
+using Microsoft.Owin;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
 using System;
@@ -14,7 +15,7 @@ namespace AutoTrader.WebApi
                 AllowInsecureHttp = true,
                 TokenEndpointPath = new PathString("/token"),
                 AccessTokenExpireTimeSpan = TimeSpan.FromDays(5),
-                //Provider = new TwoDegreeAuthorizationServerProvider()
+                Provider = new AutoTraderAuthorizationServerProvider()
             };
 
             // Token Generation
