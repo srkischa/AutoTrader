@@ -1,0 +1,3 @@
+﻿enable-migrations -ProjectName AutoTrader.Data.Migrations -StartUpProjectName AutoTrader.WebApi -ContextProjectName AutoTrader.Data
+Add-Migration -ProjectName AutoTrader.Data.Migrations -StartUpProjectName AutoTrader.WebApi -Name TODO
+Update-Database -ProjectName AutoTrader.Data.Migrations -StartUpProjectName AutoTrader.WebApi

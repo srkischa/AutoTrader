@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTrader.WebApi", "AutoTrader.WebApi\AutoTrader.WebApi.csproj", "{70C88722-68C5-4B0F-B33E-E7F9F6A9D597}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTrader.DomainModel", "AutoTrader.DomainModel\AutoTrader.DomainModel.csproj", "{30C77A0B-4E09-4342-9B13-C595E7E73AF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTrader.Data", "AutoTrader.Data\AutoTrader.Data.csproj", "{855425A9-2DB6-4277-9DAE-31026A7F48DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTrader.Service", "AutoTrader.Service\AutoTrader.Service.csproj", "{8802A8D9-E293-41CC-8FFD-2410B68535D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTrader.Service.Identity", "AutoTrader.Service.Identity\AutoTrader.Service.Identity.csproj", "{6BECC9E3-52E2-47DF-915A-CCF2BCA1B806}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTrader.WebApi.Init", "AutoTrader.WebApi.Init\AutoTrader.WebApi.Init.csproj", "{61AE93F7-3E3D-4642-950A-3935885F940C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTrader.Data.Migrations", "AutoTrader.Data.Migrations\AutoTrader.Data.Migrations.csproj", "{A0F0255E-3F43-414F-8C4D-C92A3E56BA50}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{70C88722-68C5-4B0F-B33E-E7F9F6A9D597}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70C88722-68C5-4B0F-B33E-E7F9F6A9D597}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70C88722-68C5-4B0F-B33E-E7F9F6A9D597}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70C88722-68C5-4B0F-B33E-E7F9F6A9D597}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30C77A0B-4E09-4342-9B13-C595E7E73AF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30C77A0B-4E09-4342-9B13-C595E7E73AF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30C77A0B-4E09-4342-9B13-C595E7E73AF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30C77A0B-4E09-4342-9B13-C595E7E73AF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{855425A9-2DB6-4277-9DAE-31026A7F48DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{855425A9-2DB6-4277-9DAE-31026A7F48DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{855425A9-2DB6-4277-9DAE-31026A7F48DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{855425A9-2DB6-4277-9DAE-31026A7F48DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8802A8D9-E293-41CC-8FFD-2410B68535D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8802A8D9-E293-41CC-8FFD-2410B68535D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8802A8D9-E293-41CC-8FFD-2410B68535D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8802A8D9-E293-41CC-8FFD-2410B68535D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BECC9E3-52E2-47DF-915A-CCF2BCA1B806}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BECC9E3-52E2-47DF-915A-CCF2BCA1B806}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BECC9E3-52E2-47DF-915A-CCF2BCA1B806}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BECC9E3-52E2-47DF-915A-CCF2BCA1B806}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61AE93F7-3E3D-4642-950A-3935885F940C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61AE93F7-3E3D-4642-950A-3935885F940C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61AE93F7-3E3D-4642-950A-3935885F940C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61AE93F7-3E3D-4642-950A-3935885F940C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0F0255E-3F43-414F-8C4D-C92A3E56BA50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0F0255E-3F43-414F-8C4D-C92A3E56BA50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0F0255E-3F43-414F-8C4D-C92A3E56BA50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0F0255E-3F43-414F-8C4D-C92A3E56BA50}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
