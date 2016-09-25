@@ -195,6 +195,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Provider\AutoTraderAuthorizationServerProvider.cs" />
     <Compile Include="Provider\CustomJwtFormat.cs" />
+    <Compile Include="Request\ChangePasswordRequest.cs" />
+    <Compile Include="Request\ForgotPasswordRequest.cs" />
     <Compile Include="Request\UserRegistrationRequest.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
