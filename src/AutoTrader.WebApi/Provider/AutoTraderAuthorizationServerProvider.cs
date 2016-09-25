@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Autofac.Integration.Owin;
 using AutoTrader.Service.Identity;
+using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.OAuth;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -29,14 +30,17 @@ namespace AutoTrader.WebApi.Provider
                 context.SetError("Autorization Error", "The username or password is incorrect!");
                 context.Response.Headers.Add("AuthorizationResponse", new[] { "Failed" });
             }
+            else if (!user.EmailConfirmed)
+            {
+                context.Rejected();
+                context.SetError("Autorization Error", "User did not confirm email.");
+                context.Response.Headers.Add("AuthorizationResponse", new[] { "Failed" });
+            }
             else
             {
-                var identity = new ClaimsIdentity(context.Options.AuthenticationType);
-                identity.AddClaim(new Claim(ClaimTypes.Name, user.FirstName));
-                identity.AddClaim(new Claim(ClaimTypes.Surname, user.LastName));
-                identity.AddClaim(new Claim(ClaimTypes.Email, context.UserName));
-
-                context.Validated(identity);
+                ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(userManagementService, "JWT");
+                var ticket = new AuthenticationTicket(oAuthIdentity, null);
+                context.Validated(ticket);
             }
         }
     }
