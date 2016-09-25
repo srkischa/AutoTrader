@@ -13,6 +13,8 @@ namespace AutoTrader.WebApi.Mapper
                 .Ignore(dest => dest.Id)
                 .Ignore(dest => dest.PasswordHash)
                 .Ignore(dest => dest.SecurityStamp)
-                .Ignore(dest => dest.EmailConfirmed);        }
+                .Ignore(dest => dest.Roles)
+                .Ignore(dest => dest.EmailConfirmed);
+        }
     }
 }

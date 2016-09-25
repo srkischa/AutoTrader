@@ -13,7 +13,7 @@ namespace AutoTrader.Data.Migrations.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201608291246241_InitialCreate"; }
+            get { return "201609252104379_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source
