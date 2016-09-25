@@ -5,15 +5,18 @@ using Autofac;
 using Autofac.Integration.WebApi;
 using AutoTrader.Service.Identity;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Owin;
+using Microsoft.Owin.Security.DataProtection;
 
 namespace AutoTrader.WebApi.Init
 {
-    public class DependencyResolverInitializer
+    public static class DependencyResolverInitializer
     {
-        public static void ResolveWebApiDependencies(Assembly webApiAssembly, HttpConfiguration configuration, IAppBuilder appBuilder)
+        public static void ResolveWebApiDependencies(
+            Assembly webApiAssembly,
+            HttpConfiguration configuration,
+            IAppBuilder appBuilder)
         {
             var builder = new ContainerBuilder();
 
@@ -22,9 +25,11 @@ namespace AutoTrader.WebApi.Init
 
             RegisterCommonDependencies(builder, webApiAssembly);
 
-            var container = builder.Build();
+            builder.Register<IDataProtectionProvider>(c => appBuilder.GetDataProtectionProvider()).InstancePerRequest();
 
-            configuration.DependencyResolver = new AutofacWebApiDependencyResolver(container);
+            IContainer container = builder.Build();
+            var resolver = new AutofacWebApiDependencyResolver(container);
+            configuration.DependencyResolver = resolver;
 
             appBuilder.UseAutofacMiddleware(container);
             appBuilder.UseAutofacWebApi(configuration);
@@ -34,14 +39,12 @@ namespace AutoTrader.WebApi.Init
         {
             builder.RegisterModule(new AutoMapperModule { WebProjectAssembly = webProjectAssembly });
             builder.RegisterModule<ServiceModule>();
+            builder.RegisterModule<LogInjectionModule>();
             builder.RegisterModule<EntityFrameworkModule>();
 
             //https://developingsoftware.com/configuring-autofac-to-work-with-the-aspnet-identity-framework-in-mvc-5
             builder.Register<IAuthenticationManager>(c => HttpContext.Current.GetOwinContext().Authentication).InstancePerRequest();
             builder.RegisterType<UserStore>().As<IUserStore<ApplicationUser, int>>().InstancePerLifetimeScope();
-            
-            //builder.Register(c => HttpContext.Current.GetOwinContext().Authentication.User).InstancePerLifetimeScope();
-
             builder.Register(c => HttpContext.Current.User).InstancePerRequest();
         }
     }

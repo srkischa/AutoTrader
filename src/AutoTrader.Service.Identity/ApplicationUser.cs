@@ -8,13 +8,24 @@ namespace AutoTrader.Service.Identity
 {
     public class ApplicationUser : User, IUser<int>
     {
-        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserIdentityManagerService manager)
+        public ApplicationUser()
         {
-            throw new NotImplementedException("GenerateUserIdentityAsync");
+            //need this;
+        }
 
-            // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
-            var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
-            // Add custom user claims here
+        public ApplicationUser(string email)
+        {
+            Email = email;
+        }
+
+        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(IUserIdentityManagerService manager, string authenticationType)
+        {
+            var userIdentity = await manager.CreateIdentityAsync(this, authenticationType);
+
+            userIdentity.AddClaim(new Claim(ClaimTypes.Name, FirstName));
+            userIdentity.AddClaim(new Claim(ClaimTypes.Surname, LastName));
+            userIdentity.AddClaim(new Claim(ClaimTypes.Email, Email));
+
             return userIdentity;
         }
     }

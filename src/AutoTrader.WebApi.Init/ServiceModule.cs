@@ -19,6 +19,18 @@ namespace AutoTrader.WebApi.Init
 
             RegisterServiceLayer(builder, typeof(UserService).Assembly);
             RegisterServiceLayer(builder, typeof(UserIdentityManagerService).Assembly);
+
+            builder.RegisterType<CurrentUserProvider>()
+                .AsImplementedInterfaces()
+                .InstancePerRequest();
+
+            builder.RegisterType<AutoTraderConfigurationSettings>()
+                .AsImplementedInterfaces()
+                .InstancePerRequest();
+
+            builder.RegisterType<IdentityMessageService>()
+                .AsImplementedInterfaces()
+                .InstancePerRequest();
         }
 
         private static void RegisterServiceLayer(ContainerBuilder builder, Assembly serviceAssembly)

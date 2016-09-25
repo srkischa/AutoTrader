@@ -6,5 +6,6 @@ namespace AutoTrader.Service
     public interface IUserService
     {
         IEnumerable<User> GetUsers();
+        User FindByEmail(string email);
     }
 }

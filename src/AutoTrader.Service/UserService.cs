@@ -8,10 +8,17 @@ namespace AutoTrader.Service
     public class UserService : IUserService
     {
         private readonly IRepository<User> _userRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public UserService(IRepository<User> userRepository)
+        public UserService(IRepository<User> userRepository, IUnitOfWork unitOfWork)
         {
             _userRepository = userRepository;
+            _unitOfWork = unitOfWork;
+        }
+
+        public User FindByEmail(string email)
+        {
+            return _userRepository.Items.FirstOrDefault(user => user.Email == email);
         }
 
         public IEnumerable<User> GetUsers()
